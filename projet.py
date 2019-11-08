@@ -2,8 +2,8 @@
 
 #Ouverture des fichiers sources
 
-sources = open("bilan_X.txt","r")
-secteurs = open("bilan_secteurs.txt","r")
+X = open("bilan_X.txt","r")
+Y = open("bilan_secteurs.txt","r")
 resultat = open("resultat.txt","w")
 
 #
@@ -14,11 +14,13 @@ temp = []
 temp2 = []
 secteurs = []
 sources = []
+secteurs2 = []
+sources2 = []
 
-for ligne in sources:
+for ligne in X:
 	temp += [ligne.split()]
 
-for ligne in secteurs:
+for ligne in Y:
 	temp2 += [ligne]
 	
 print (len(temp))
@@ -33,8 +35,11 @@ for i in range(0,len(temp)):
 		secteurs += temp2[i]
 		sources += temp[i]
 
+for i in range(0,len(secteurs)):
+	for 
+
 #Fermeture des fichiers
 
-sources.close()
-secteurs.close()
+X.close()
+Y.close()
 resultat.close()
