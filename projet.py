@@ -8,8 +8,10 @@ resultat = open("resultat.txt","w")
 
 #
 
+i=0
 for ligne in sources:
-	print (ligne)
+	i++
+	temp[i]=ligne	
 
 #Fermeture des fichiers
 
