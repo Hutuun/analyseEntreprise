@@ -20,9 +20,9 @@ sources2 = []
 for ligne in X:
 	temp += [ligne.split()]
 	
-for i in temp:
-	for j in i:
-		j=float(j)
+for i in range(0,len(temp)):
+	for j in range(0,len(temp[i])):
+		temp[i][j]=float(temp[i][j])
 
 for ligne in Y:
 	temp2 += [ligne]
@@ -42,14 +42,11 @@ for i in range(0,len(secteurs)):
 		if secteurs[i]==j:
 			temp3=1
 	if temp3==0:
-		secteurs2 += [secteurs]
-		sources2 += [sources]
-
-print (len(secteurs2))
-print (len(sources2))
-
-for i in secteurs2:
-	print (i)
+		secteurs2 += [secteurs[i]]
+		sources2 += [sources[i]]
+		
+del (secteurs2[0])
+del (sources2[0])
 
 #Fermeture des fichiers
 
