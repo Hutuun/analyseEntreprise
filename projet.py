@@ -27,11 +27,11 @@ print (len(temp))
 print (len(temp2))
 
 for i in range(0,len(temp)):
-	temp3=true 
+	temp3=0 
 	for j in temp[i]:
 		if j == -1:
-			temp3=false
-	if temp3:
+			temp3=1
+	if temp3==0:
 		secteurs += temp2[i]
 		sources += temp[i]
 
