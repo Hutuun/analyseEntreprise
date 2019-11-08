@@ -19,6 +19,9 @@ sources2 = []
 
 for ligne in X:
 	temp += [ligne.split()]
+	
+for i in temp:
+	for j in i:
 
 for ligne in Y:
 	temp2 += [ligne]
@@ -26,7 +29,7 @@ for ligne in Y:
 for i in range(0,len(temp)):
 	temp3=0 
 	for j in temp[i]:
-		if j == '-1':
+		if j == -1:
 			temp3=1
 	if temp3==0:
 		secteurs += [temp2[i]]
@@ -43,7 +46,9 @@ for i in range(0,len(secteurs)):
 
 print (len(secteurs2))
 print (len(sources2))
-print (secteurs2)
+
+for i in secteurs2:
+	print (i)
 
 #Fermeture des fichiers
 
