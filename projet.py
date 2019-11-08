@@ -9,7 +9,7 @@ resultat = open("resultat.txt","w")
 #
 
 for ligne in sources:
-	print ligne
+	print (ligne)
 
 #Fermeture des fichiers
 
