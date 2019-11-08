@@ -1,4 +1,4 @@
-
+import numpy
 
 #Ouverture des fichiers sources
 
