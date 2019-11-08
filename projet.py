@@ -10,9 +10,7 @@ resultat = open("resultat.txt","w")
 
 i=0
 for ligne in sources:
-	print (ligne[0])
-	str = ligne
-	print str.split()
+	print (ligne.split())
 
 #Fermeture des fichiers
 
