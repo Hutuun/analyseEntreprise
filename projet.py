@@ -22,6 +22,7 @@ for ligne in X:
 	
 for i in temp:
 	for j in i:
+		j=float(j)
 
 for ligne in Y:
 	temp2 += [ligne]
