@@ -32,11 +32,14 @@ for i in range(0,len(temp)):
 		if j == -1:
 			temp3=1
 	if temp3==0:
-		secteurs += temp2[i]
-		sources += temp[i]
+		secteurs += [temp2[i]]
+		sources += [temp[i]]
+
+print (temp[0])
+print (sources)
 
 for i in range(0,len(secteurs)):
-	for 
+	temp3=0
 
 #Fermeture des fichiers
 
