@@ -9,8 +9,14 @@ resultat = open("resultat.txt","w")
 #
 
 i=0
+
+temp = []
+
 for ligne in sources:
-	print (ligne.split())
+	temp += [ligne.split()]
+	
+	
+print(temp[1])
 
 #Fermeture des fichiers
 
