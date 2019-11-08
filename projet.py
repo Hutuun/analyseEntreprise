@@ -29,7 +29,7 @@ print (len(temp2))
 for i in range(0,len(temp)):
 	temp3=0 
 	for j in temp[i]:
-		if j == -1:
+		if j == '-1':
 			temp3=1
 	if temp3==0:
 		secteurs += [temp2[i]]
