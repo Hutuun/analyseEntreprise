@@ -35,11 +35,17 @@ for i in range(0,len(temp)):
 		secteurs += [temp2[i]]
 		sources += [temp[i]]
 
-print (temp[0])
-print (sources)
-
 for i in range(0,len(secteurs)):
 	temp3=0
+	for j in secteurs2:
+		if secteurs[i]=j:
+			temp3=1
+	if temp3==0:
+		secteurs2 += [secteurs]
+		sources2 += [sources]
+
+print (len(secteurs2))
+print (len(sources2))
 
 #Fermeture des fichiers
 
