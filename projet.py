@@ -22,9 +22,6 @@ for ligne in X:
 
 for ligne in Y:
 	temp2 += [ligne]
-	
-print (len(temp))
-print (len(temp2))
 
 for i in range(0,len(temp)):
 	temp3=0 
@@ -38,7 +35,7 @@ for i in range(0,len(temp)):
 for i in range(0,len(secteurs)):
 	temp3=0
 	for j in secteurs2:
-		if secteurs[i]=j:
+		if secteurs[i]==j:
 			temp3=1
 	if temp3==0:
 		secteurs2 += [secteurs]
@@ -46,6 +43,7 @@ for i in range(0,len(secteurs)):
 
 print (len(secteurs2))
 print (len(sources2))
+print (secteurs2)
 
 #Fermeture des fichiers
 
