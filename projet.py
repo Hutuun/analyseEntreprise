@@ -100,6 +100,26 @@ plt.ylabel("Somme de la représentativité des valeurs propres")
 plt.xlabel("Nombres de valeurs propres") 
 plt.show() 
 
+
+
+#positionnement des individus dans le premier plan 
+fig, axes = plt.subplots(figsize=(12,12)) 
+axes.set_xlim(-6,6) #même limites en abscisse 
+axes.set_ylim(-6,6) #et en ordonnée 
+
+#placement des étiquettes des observations 
+for i in range(n):
+	plt.annotate(secteurs2[i],(coord[i,0],coord[i,1]))
+
+#ajouter les axes 
+plt.plot([-6,6],[0,0],color='silver',linestyle='-',linewidth=1) 
+plt.plot([0,0],[-6,6],color='silver',linestyle='-',linewidth=1)
+
+#affichage 
+plt.show()
+
+
+
 #Fermeture des fichiers
 
 X.close()
