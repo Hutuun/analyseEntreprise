@@ -24,7 +24,7 @@ def AffichageCumul(p,acp):
 	plt.savefig("Image/fig2.png")
 	plt.show() 
 
-def RepresentationIndividus():
+def RepresentationIndividus(n,nbEle,dimx,coord,secteurs2):
 	for j in range(int(n/nbEle)):
 
 		#positionnement des individus dans le premier plan 

@@ -97,7 +97,7 @@ fct.AffichageClassement(p,eigval)
 fct.AffichageCumul(p,acp)
 
 
-fct.RepresentationIndividus()
+#fct.RepresentationIndividus(n,nbEle,dimx,coord,secteurs2)
 
 
 
