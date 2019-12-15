@@ -74,7 +74,11 @@ del (sources2[0])
 
 #Affichage
 
-plt.plot(numpy.arange(1,
+plt.plot(numpy.arange(1,p+1),eigval)
+plt.title("Classement en fonction de leur importance des valeurs propres")
+plt.ylable("Valeurs propres")
+plt.xlabel("Classement")
+plt.show()
 
 #Fermeture des fichiers
 
