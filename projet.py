@@ -123,7 +123,7 @@ for j in range(int(n/nbEle)):
 
 	#affichage 
 	name = "Image/Correlation/fig" + str(j) + ".png"
-	#fig.savefig(name)
+	fig.savefig(name)
 	fig.clear()
 	#plt.show()
 	plt.cla()
