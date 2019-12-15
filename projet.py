@@ -12,6 +12,7 @@ import fonction as fct
 
 X = open("bilan_X.txt","r")
 Y = open("bilan_secteurs.txt","r")
+C = open("bilan_caracteristiques.txt")
 resultat = open("resultat.txt","w")
 
 #Initialisation des variables
@@ -28,6 +29,8 @@ sources = []
 secteurs2 = []
 sources2 = []
 
+caracteristique =[]
+
 Z = []
 coord = []
 
@@ -38,6 +41,9 @@ acp = PCA(svd_solver='full')
 
 for ligne in X:
 	temp += [ligne.split()]
+
+for ligne in C:
+	caracteristique += [ligne]
 	
 for i in range(0,len(temp)):
 	for j in range(0,len(temp[i])):
@@ -64,6 +70,9 @@ for i in range(0,len(secteurs)):
 		secteurs2 += [secteurs[i]]
 		sources2 += [sources[i]]
 		
+del (secteurs2[0])
+del (sources2[0])
+
 #Calcul des valeurs propres
 
 Z = sc.fit_transform(sources2)
@@ -86,23 +95,45 @@ bs = bs[::-1]
 
 print(pandas.DataFrame({'Val.Propre':eigval,'Seuils':bs,'Choisi':eigval>bs})) 
 
-#del (secteurs2[0])
-#del (sources2[0])
+#Contribution à l'inertie
+di = numpy.sum(Z**2,axis=1) 
+print(pandas.DataFrame({'ID':secteurs2,'d_i':di})) 
+
+#Qualité de représentation
+cos2 = coord**2 
+for j in range(p):     
+	cos2[:,j] = cos2[:,j]/di 
+ 
+print(pandas.DataFrame({'id':secteurs2,'COS2_1':cos2[:,0],'COS2_2':cos2[:,1]}))
+
+#Contribution à chaque axes
+ctr = coord**2 
+for j in range(p):
+	ctr[:,j] = ctr[:,j]/(n*eigval[j])      
+ 
+print(pandas.DataFrame({'id':secteurs2,'CTR_1':ctr[:,0],'CTR_2':ctr[:,1]})) 
+
+#Représentation des variables
+sqrt_eigval = numpy.sqrt(eigval) 
+
+corvar = numpy.zeros((p,p)) 
+ 
+for k in range(p):     
+	corvar[:,k] = acp.components_[k,:] * sqrt_eigval[k]      
+
+#print(corvar) 
+
+print(pandas.DataFrame({'id':caracteristique,'COR_1':corvar[:,0],'COR_2':corvar[:,1]})) 
 
 #Affichage
 
-fct.AffichageClassement(p,eigval)
+#fct.AffichageClassement(p,eigval)
 
-
-fct.AffichageCumul(p,acp)
-
+#fct.AffichageCumul(p,acp)
 
 #fct.RepresentationIndividus(n,nbEle,dimx,coord,secteurs2)
 
-
-
-di = numpy.sum(Z**2,axis=1) 
-print(pandas.DataFrame({'ID':secteurs2,'d_i':di})) 
+fct.AffichageCercleCorrelation(caracteristique,corvar,p)
 
 #Fermeture des fichiers
 

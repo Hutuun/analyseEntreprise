@@ -48,3 +48,24 @@ def RepresentationIndividus(n,nbEle,dimx,coord,secteurs2):
 		plt.cla()
 		plt.clf()
 		plt.close('all')
+		
+def AffichageCercleCorrelation(caracteristique,corvar,p):
+	fig, axes = plt.subplots(figsize=(8,8)) 
+	axes.set_xlim(-1,1) 
+	axes.set_ylim(-1,1) 
+ 
+	#affichage des étiquettes (noms des variables) 
+	for j in range(p):     
+		plt.annotate(caracteristique[j],(corvar[j,0],corvar[j,1]))      
+
+	#ajouter les axes 
+	plt.plot([-1,1],[0,0],color='silver',linestyle='-',linewidth=1) 
+	plt.plot([0,0],[-1,1],color='silver',linestyle='-',linewidth=1) 
+	
+	#ajouter un cercle 
+	cercle = plt.Circle((0,0),1,color='blue',fill=False) 
+	axes.add_artist(cercle) 
+ 
+	#affichage 
+	plt.savefig("Image/CercleCorrelation.png")
+	plt.show() 
