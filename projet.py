@@ -22,6 +22,7 @@ secteurs2 = []
 sources2 = []
 
 Z = []
+coord = []
 
 sc = StandardScaler()
 acp = PCA(svd_solver='full')
@@ -57,7 +58,9 @@ for i in range(0,len(secteurs)):
 		sources2 += [sources[i]]
 		
 Z = sc.fit_transform(sources2)
-print(Z)
+#print(Z)
+
+coord = acp.fit_transform(Z)
 
 del (secteurs2[0])
 del (sources2[0])
