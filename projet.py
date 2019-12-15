@@ -31,7 +31,7 @@ coord = []
 sc = StandardScaler()
 acp = PCA(svd_solver='full')
 
-#Préparation des données
+#Preparation des donnees
 
 for ligne in X:
 	temp += [ligne.split()]
@@ -75,7 +75,7 @@ eigval = (acp.singular_values_**2)/n
 
 print(acp.explained_variance_ratio_)
 
-#Détermination du nombre de facteurs à retenir
+#Determination du nombre de facteurs a retenir
 
 bs = 1/numpy.arange(p,0,-1) 
 bs = numpy.cumsum(bs) 
@@ -103,17 +103,18 @@ plt.show()
 
 
 #positionnement des individus dans le premier plan 
+dimx = 10
 fig, axes = plt.subplots(figsize=(12,12)) 
-axes.set_xlim(-6,6) #même limites en abscisse 
-axes.set_ylim(-6,6) #et en ordonnée 
+axes.set_xlim(-dimx,dimx) #même limites en abscisse 
+axes.set_ylim(-dimx,dimx) #et en ordonnée 
 
-#placement des étiquettes des observations 
+#placement des etiquettes des observations 
 for i in range(n):
 	plt.annotate(secteurs2[i],(coord[i,0],coord[i,1]))
 
 #ajouter les axes 
-plt.plot([-6,6],[0,0],color='silver',linestyle='-',linewidth=1) 
-plt.plot([0,0],[-6,6],color='silver',linestyle='-',linewidth=1)
+plt.plot([-dimx,dimx],[0,0],color='silver',linestyle='-',linewidth=1) 
+plt.plot([0,0],[-dimx,dimx],color='silver',linestyle='-',linewidth=1)
 
 #affichage 
 plt.show()
