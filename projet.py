@@ -1,6 +1,7 @@
 import numpy
 import sklearn
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 
 #Ouverture des fichiers sources
 
@@ -14,12 +15,16 @@ i=0
 
 temp = []
 temp2 = []
+
 secteurs = []
 sources = []
 secteurs2 = []
 sources2 = []
 
+Z = []
+
 sc = StandardScaler()
+acp = PCA(svd_solver='full')
 
 #Traitement
 
@@ -51,6 +56,9 @@ for i in range(0,len(secteurs)):
 		secteurs2 += [secteurs[i]]
 		sources2 += [sources[i]]
 		
+Z = sc.fit_transform(sources2)
+print(Z)
+
 del (secteurs2[0])
 del (sources2[0])
 
