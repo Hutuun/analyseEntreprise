@@ -1,5 +1,5 @@
 import numpy
-import scikit-learn
+import sklearn
 
 #Ouverture des fichiers sources
 
