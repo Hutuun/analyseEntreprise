@@ -94,14 +94,15 @@ plt.plot(numpy.arange(1,p+1),eigval)
 plt.title("Classement en fonction de leur importance des valeurs propres")
 plt.ylabel("Valeurs propres")
 plt.xlabel("Classement")
-plt.savefig("fig1.png")
+plt.savefig("Image/fig1.png")
 plt.show()
+
 
 plt.plot(numpy.arange(1,p+1),numpy.cumsum(acp.explained_variance_ratio_)) 
 plt.title("Cumul de la représentativité des valeurs propres") 
 plt.ylabel("Somme de la représentativité des valeurs propres") 
 plt.xlabel("Nombres de valeurs propres") 
-plt.savefig("fig2.png")
+plt.savefig("Image/fig2.png")
 plt.show() 
 
 
@@ -121,9 +122,13 @@ for j in range(int(n/nbEle)):
 	plt.plot([0,0],[-dimx,dimx],color='silver',linestyle='-',linewidth=1)
 
 	#affichage 
-	name = "fig" + str(j) + ".png"
-	#plt.savefig(name)
+	name = "Image/Correlation/fig" + str(j) + ".png"
+	#fig.savefig(name)
+	fig.clear()
 	#plt.show()
+	plt.cla()
+	plt.clf()
+	plt.close('all')
 
 
 
