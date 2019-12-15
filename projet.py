@@ -60,11 +60,11 @@ for i in range(0,len(secteurs)):
 Z = sc.fit_transform(sources2)
 #print(Z)
 
-n = acp.n_components
+n = sources2.shape[0]
 
 coord = acp.fit_transform(Z)
 
-#eigval = (acp.singular_values_**2)/n
+eigval = (acp.singular_values_**2)/n
 
 print(acp.explained_variance_ratio_)
 
@@ -73,7 +73,7 @@ del (sources2[0])
 
 #Affichage
 
-
+plt.plot(numpy.arange(
 
 #Fermeture des fichiers
 
