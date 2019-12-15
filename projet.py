@@ -114,15 +114,16 @@ for j in range(int(n/nbEle)):
 
 	#placement des etiquettes des observations 
 	for i in range(nbEle):
-		plt.annotate(secteurs2[i],(coord[i,0],coord[i,1]))
+		plt.annotate(secteurs2[j*nbEle+i],(coord[j*nbEle+i,0],coord[j*nbEle+i,1]))
 
 	#ajouter les axes 
 	plt.plot([-dimx,dimx],[0,0],color='silver',linestyle='-',linewidth=1) 
 	plt.plot([0,0],[-dimx,dimx],color='silver',linestyle='-',linewidth=1)
 
 	#affichage 
-	plt.savefig("fig3.png")
-	plt.show()
+	name = "fig" + str(j) + ".png"
+	#plt.savefig(name)
+	#plt.show()
 
 
 
