@@ -60,10 +60,20 @@ for i in range(0,len(secteurs)):
 Z = sc.fit_transform(sources2)
 #print(Z)
 
+n = acp.n_components
+
 coord = acp.fit_transform(Z)
+
+#eigval = (acp.singular_values_**2)/n
+
+print(acp.explained_variance_ratio_)
 
 del (secteurs2[0])
 del (sources2[0])
+
+#Affichage
+
+
 
 #Fermeture des fichiers
 
