@@ -28,7 +28,7 @@ coord = []
 sc = StandardScaler()
 acp = PCA(svd_solver='full')
 
-#Traitement
+#Préparation des données
 
 for ligne in X:
 	temp += [ligne.split()]
@@ -58,6 +58,8 @@ for i in range(0,len(secteurs)):
 		secteurs2 += [secteurs[i]]
 		sources2 += [sources[i]]
 		
+#Calcul des valeurs propres
+
 Z = sc.fit_transform(sources2)
 #print(Z)
 
@@ -70,16 +72,24 @@ eigval = (acp.singular_values_**2)/n
 
 print(acp.explained_variance_ratio_)
 
-del (secteurs2[0])
-del (sources2[0])
+#Détermination du nombre de facteurs à retenir
+
+#del (secteurs2[0])
+#del (sources2[0])
 
 #Affichage
 
 plt.plot(numpy.arange(1,p+1),eigval)
 plt.title("Classement en fonction de leur importance des valeurs propres")
-plt.ylable("Valeurs propres")
+plt.ylabel("Valeurs propres")
 plt.xlabel("Classement")
 plt.show()
+
+plt.plot(numpy.arange(1,p+1),numpy.cumsum(acp.explained_variance_ratio_)) 
+plt.title("Cumul de la représentativité des valeurs propres") 
+plt.ylabel("Somme de la représentativité des valeurs propres") 
+plt.xlabel("Nombres de valeurs propres") 
+plt.show() 
 
 #Fermeture des fichiers
 
