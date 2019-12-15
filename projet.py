@@ -1,5 +1,6 @@
 import numpy
 import sklearn
+from sklearn.preprocessing import StandardScaler
 
 #Ouverture des fichiers sources
 
@@ -7,7 +8,7 @@ X = open("bilan_X.txt","r")
 Y = open("bilan_secteurs.txt","r")
 resultat = open("resultat.txt","w")
 
-#
+#Initialisation des variables
 
 i=0
 
@@ -17,6 +18,10 @@ secteurs = []
 sources = []
 secteurs2 = []
 sources2 = []
+
+sc = StandardScaler()
+
+#Traitement
 
 for ligne in X:
 	temp += [ligne.split()]
