@@ -2,6 +2,7 @@ import numpy
 import sklearn
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
 
 #Ouverture des fichiers sources
 
@@ -60,8 +61,8 @@ for i in range(0,len(secteurs)):
 Z = sc.fit_transform(sources2)
 #print(Z)
 
-n = sources2.shape[0]
-p = sources2.shape[1]
+n = len(sources2)
+p = len(sources2[0])
 
 coord = acp.fit_transform(Z)
 
