@@ -1,8 +1,11 @@
+#Import des librairies
+
 import numpy
 import sklearn
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
+import pandas
 
 #Ouverture des fichiers sources
 
@@ -73,6 +76,12 @@ eigval = (acp.singular_values_**2)/n
 print(acp.explained_variance_ratio_)
 
 #Détermination du nombre de facteurs à retenir
+
+bs = 1/numpy.arange(p,0,-1) 
+bs = numpy.cumsum(bs) 
+bs = bs[::-1]
+
+print(pandas.DataFrame({'Val.Propre':eigval,'Seuils':bs,'Choisi':eigval>bs})) 
 
 #del (secteurs2[0])
 #del (sources2[0])
