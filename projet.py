@@ -1,4 +1,5 @@
 import numpy
+import scikit-learn
 
 #Ouverture des fichiers sources
 
@@ -45,6 +46,7 @@ for i in range(0,len(secteurs)):
 		secteurs2 += [secteurs[i]]
 		sources2 += [sources[i]]
 		
+resultat.
 del (secteurs2[0])
 del (sources2[0])
 
