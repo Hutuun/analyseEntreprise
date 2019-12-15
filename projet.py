@@ -16,6 +16,8 @@ resultat = open("resultat.txt","w")
 #Initialisation des variables
 
 i=0
+dimx = 10
+nbEle = 5
 
 temp = []
 temp2 = []
@@ -103,24 +105,24 @@ plt.savefig("fig2.png")
 plt.show() 
 
 
+for j in range(int(n/nbEle)):
 
-#positionnement des individus dans le premier plan 
-dimx = 10
-fig, axes = plt.subplots(figsize=(12,12)) 
-axes.set_xlim(-dimx,dimx) #même limites en abscisse 
-axes.set_ylim(-dimx,dimx) #et en ordonnée 
+	#positionnement des individus dans le premier plan 
+	fig, axes = plt.subplots(figsize=(12,12)) 
+	axes.set_xlim(-dimx,dimx) #même limites en abscisse 
+	axes.set_ylim(-dimx,dimx) #et en ordonnée 
 
-#placement des etiquettes des observations 
-for i in range(n):
-	plt.annotate(secteurs2[i],(coord[i,0],coord[i,1]))
+	#placement des etiquettes des observations 
+	for i in range(nbEle):
+		plt.annotate(secteurs2[i],(coord[i,0],coord[i,1]))
 
-#ajouter les axes 
-plt.plot([-dimx,dimx],[0,0],color='silver',linestyle='-',linewidth=1) 
-plt.plot([0,0],[-dimx,dimx],color='silver',linestyle='-',linewidth=1)
+	#ajouter les axes 
+	plt.plot([-dimx,dimx],[0,0],color='silver',linestyle='-',linewidth=1) 
+	plt.plot([0,0],[-dimx,dimx],color='silver',linestyle='-',linewidth=1)
 
-#affichage 
-plt.savefig("fig3.png")
-plt.show()
+	#affichage 
+	plt.savefig("fig3.png")
+	plt.show()
 
 
 
