@@ -61,6 +61,7 @@ Z = sc.fit_transform(sources2)
 #print(Z)
 
 n = sources2.shape[0]
+p = sources2.shape[1]
 
 coord = acp.fit_transform(Z)
 
@@ -73,7 +74,7 @@ del (sources2[0])
 
 #Affichage
 
-plt.plot(numpy.arange(
+plt.plot(numpy.arange(1,
 
 #Fermeture des fichiers
 
