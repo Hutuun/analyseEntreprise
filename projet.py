@@ -125,6 +125,11 @@ for k in range(p):
 
 print(pandas.DataFrame({'id':caracteristique,'COR_1':corvar[:,0],'COR_2':corvar[:,1]})) 
 
+#Qualité de représentation des variables
+
+cos2var = corvar**2 
+print(pandas.DataFrame({'id':caracteristique,'COS2_1':cos2var[:,0],'COS2_2':cos2var[:,1]}))
+
 #Affichage
 
 #fct.AffichageClassement(p,eigval)
