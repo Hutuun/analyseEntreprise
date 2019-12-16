@@ -107,7 +107,7 @@ for j in range(p):
 print(pandas.DataFrame({'id':secteurs2,'COS2_1':cos2[:,0],'COS2_2':cos2[:,1]}))
 
 #Contribution à chaque axes
-ctr = coord**2 
+ctr = coord**2
 for j in range(p):
 	ctr[:,j] = ctr[:,j]/(n*eigval[j])      
  
@@ -116,19 +116,28 @@ print(pandas.DataFrame({'id':secteurs2,'CTR_1':ctr[:,0],'CTR_2':ctr[:,1]}))
 #Représentation des variables
 sqrt_eigval = numpy.sqrt(eigval) 
 
-corvar = numpy.zeros((p,p)) 
+corvar = numpy.zeros((p,p))
  
 for k in range(p):     
-	corvar[:,k] = acp.components_[k,:] * sqrt_eigval[k]      
+	corvar[:,k] = acp.components_[k,:] * sqrt_eigval[k]
 
-#print(corvar) 
+#print(corvar)
 
-print(pandas.DataFrame({'id':caracteristique,'COR_1':corvar[:,0],'COR_2':corvar[:,1]})) 
+print(pandas.DataFrame({'id':caracteristique,'COR_1':corvar[:,0],'COR_2':corvar[:,1]}))
 
 #Qualité de représentation des variables
 
 cos2var = corvar**2 
 print(pandas.DataFrame({'id':caracteristique,'COS2_1':cos2var[:,0],'COS2_2':cos2var[:,1]}))
+
+#Contribution des variables aux axes
+
+ctrvar = cos2var 
+ 
+for k in range(p):     
+	ctrvar[:,k] = ctrvar[:,k]/eigval[k] 
+ 
+print(pandas.DataFrame({'id':X.columns,'CTR_1':ctrvar[:,0],'CTR_2':ctrvar[:,1]})) 
 
 #Affichage
 
@@ -138,7 +147,7 @@ print(pandas.DataFrame({'id':caracteristique,'COS2_1':cos2var[:,0],'COS2_2':cos2
 
 #fct.RepresentationIndividus(n,nbEle,dimx,coord,secteurs2)
 
-fct.AffichageCercleCorrelation(caracteristique,corvar,p)
+#fct.AffichageCercleCorrelation(caracteristique,corvar,p)
 
 #Fermeture des fichiers
 
