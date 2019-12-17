@@ -12,7 +12,7 @@ import fonction as fct
 
 X = open("bilan_X.txt","r")
 Y = open("bilan_secteurs.txt","r")
-C = open("bilan_caracteristiques.txt")
+C = open("bilan_caracteristique_abbr.txt")
 resultat = open("resultat.txt","w")
 
 #Initialisation des variables
@@ -137,7 +137,7 @@ ctrvar = cos2var
 for k in range(p):     
 	ctrvar[:,k] = ctrvar[:,k]/eigval[k] 
  
-print(pandas.DataFrame({'id':X.columns,'CTR_1':ctrvar[:,0],'CTR_2':ctrvar[:,1]})) 
+print(pandas.DataFrame({'id':caracteristique,'CTR_1':ctrvar[:,0],'CTR_2':ctrvar[:,1]})) 
 
 #Affichage
 
