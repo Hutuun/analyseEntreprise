@@ -74,7 +74,7 @@ for i in range(0,len(secteurs)):
 del (secteurs2[0])
 del (sources2[0])
 
-fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/")
+fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
 
 caracteristique2 +=[caracteristique[2]]
 caracteristique2 +=[caracteristique[3]]
@@ -87,7 +87,7 @@ for i in range(0,len(sources2)):
 
 #print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
 
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/")
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/",1)
 
 for i in range(0,len(sources2)):
 	temp = []
@@ -97,7 +97,7 @@ for i in range(0,len(sources2)):
 
 #print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
 
-fct.FonctionPrincipale(sources4,secteurs2,caracteristique2,nbEle,dimx,"Image2/")
+fct.FonctionPrincipale(sources4,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
 
 #Fermeture des fichiers
 

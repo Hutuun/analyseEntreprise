@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pandas
 import fonction as fct
 
-def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse):
+def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep):
 	sc = StandardScaler()
 	acp = PCA(svd_solver='full')
 
@@ -84,7 +84,8 @@ def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse):
 
 	fct.AffichageCumul(p,acp,adresse)
 
-	fct.RepresentationIndividus(n,nbEle,dimx,coord,secteurs2,adresse)
+	if rep==0:
+		fct.RepresentationIndividus(n,nbEle,dimx,coord,secteurs2,adresse)
 
 	fct.AffichageCercleCorrelation(caracteristique,corvar,p,adresse)
 
