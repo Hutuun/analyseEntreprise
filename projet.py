@@ -10,9 +10,11 @@ import fonction as fct
 
 #Ouverture des fichiers sources
 
-X = open("bilan_X.txt","r")
+actif = open("bilan_X.txt","r")
+passif = open("bilan_Y.txt","r")
 Y = open("bilan_secteurs.txt","r")
-C = open("bilan_caracteristique_abbr.txt")
+Cactif = open("bilan_caracteristique_abbr_actif.txt")
+Cpassif = open("bilan_caracteristique_abbr_passif.txt")
 resultat = open("resultat.txt","w")
 
 #Initialisation des variables
@@ -23,6 +25,9 @@ nbEle = 5
 
 temp = []
 temp2 = []
+temp3 = 0
+temp4 = []
+temp5 = []
 
 secteurs = []
 sources = []
@@ -30,40 +35,52 @@ secteurs2 = []
 sources2 = []
 secteurs3 = []
 sources3 = []
-sources4 = []
-sources5 = []
 
 caracteristique =[]
 caracteristique2 =[]
-caracteristique3 =[]
-caracteristique4 =[]
-
-Z = []
-coord = []
 
 #Preparation des donnees
 
-for ligne in X:
+for ligne in actif:
 	temp += [ligne.split()]
+	
+#print(pandas.DataFrame({'temp':temp}))
 
-for ligne in C:
+for ligne in passif:
+	temp6=[]
+	temp5 = []
+	temp5 += ligne.split()
+	for i in range(0,len(temp[temp3])):
+		temp6 += [temp[temp3][i]]
+	for i in range(0,len(temp5)):
+		temp6 += [temp5[i]]
+	temp4 += [temp6]
+	temp3 += 1
+
+#print(pandas.DataFrame({'temp4':temp4})) 
+
+for ligne in Cactif:
 	caracteristique += [ligne]
 	
-for i in range(0,len(temp)):
-	for j in range(0,len(temp[i])):
-		temp[i][j]=float(temp[i][j])
+for ligne in Cpassif:
+	caracteristique += [ligne]
+
+	
+for i in range(0,len(temp4)):
+	for j in range(0,len(temp4[i])):
+		temp4[i][j]=float(temp4[i][j])
 
 for ligne in Y:
 	temp2 += [ligne]
 
-for i in range(0,len(temp)):
+for i in range(0,len(temp4)):
 	temp3=0 
-	for j in temp[i]:
+	for j in temp4[i]:
 		if j == -1:
 			temp3=1
 	if temp3==0:
 		secteurs += [temp2[i]]
-		sources += [temp[i]]
+		sources += [temp4[i]]
 
 for i in range(0,len(secteurs)):
 	temp3=0
@@ -77,11 +94,20 @@ for i in range(0,len(secteurs)):
 del (secteurs2[0])
 del (sources2[0])
 
+#print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources2}))
+
+for i in range(1,len(sources2)):
+	if len(sources2[i-1])!=len(sources2[i]):
+		print("false")
+		print(str(i) + " : " + str(len(sources2[i])))
+
 fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
 
+caracteristique2 =[]
 caracteristique2 +=[caracteristique[2]]
 caracteristique2 +=[caracteristique[3]]
 
+sources3 = []
 for i in range(0,len(sources2)):
 	temp = []
 	temp +=[sources2[i][2]]
@@ -92,36 +118,58 @@ for i in range(0,len(sources2)):
 
 fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/",1)
 
-caracteristique3 +=[caracteristique[12]]
-caracteristique3 +=[caracteristique[21]]
+caracteristique2 =[]
+caracteristique2 +=[caracteristique[12]]
+caracteristique2 +=[caracteristique[21]]
 
+sources3 = []
 for i in range(0,len(sources2)):
 	temp = []
 	temp +=[sources2[i][12]]
 	temp +=[sources2[i][21]]
-	sources4+=[temp]
+	sources3+=[temp]
 
 #print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
 
-fct.FonctionPrincipale(sources4,secteurs2,caracteristique3,nbEle,dimx,"Image3/",1)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
 
-caracteristique4 +=[caracteristique[2]]
-caracteristique4 +=[caracteristique[3]]
-caracteristique4 +=[caracteristique[11]]
+caracteristique2 =[]
+caracteristique2 +=[caracteristique[2]]
+caracteristique2 +=[caracteristique[3]]
+caracteristique2 +=[caracteristique[11]]
 
+sources3 = []
 for i in range(0,len(sources2)):
 	temp = []
 	temp +=[sources2[i][2]]
 	temp +=[sources2[i][3]]
 	temp +=[sources2[i][11]]
-	sources5+=[temp]
+	sources3+=[temp]
 
-print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources5})) 
+print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
 
-fct.FonctionPrincipale(sources5,secteurs2,caracteristique4,nbEle,dimx,"Image4/",0)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+
+caracteristique2 =[]
+caracteristique2 +=[caracteristique[23]]
+caracteristique2 +=[caracteristique[43]]
+
+sources3 = []
+for i in range(0,len(sources2)):
+	temp = []
+	temp +=[sources2[i][23]]
+	temp +=[sources2[i][43]]
+	sources3+=[temp]
+
+print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
 
 #Fermeture des fichiers
 
-X.close()
+actif.close()
+passif.close()
 Y.close()
+Cactif.close()
+Cpassif.close()
 resultat.close()
