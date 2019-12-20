@@ -35,6 +35,8 @@ sources5 = []
 
 caracteristique =[]
 caracteristique2 =[]
+caracteristique3 =[]
+caracteristique4 =[]
 
 Z = []
 coord = []
@@ -90,15 +92,22 @@ for i in range(0,len(sources2)):
 
 fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/",1)
 
+caracteristique3 +=[caracteristique[12]]
+caracteristique3 +=[caracteristique[21]]
+
 for i in range(0,len(sources2)):
 	temp = []
 	temp +=[sources2[i][12]]
-	temp +=[sources2[i][23]]
+	temp +=[sources2[i][21]]
 	sources4+=[temp]
 
 #print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
 
-fct.FonctionPrincipale(sources4,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
+fct.FonctionPrincipale(sources4,secteurs2,caracteristique3,nbEle,dimx,"Image3/",1)
+
+caracteristique4 +=[caracteristique[2]]
+caracteristique4 +=[caracteristique[3]]
+caracteristique4 +=[caracteristique[11]]
 
 for i in range(0,len(sources2)):
 	temp = []
@@ -107,9 +116,9 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][11]]
 	sources5+=[temp]
 
-#print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources5})) 
 
-fct.FonctionPrincipale(sources4,secteurs2,caracteristique2,nbEle,dimx,"Image4/",0)
+fct.FonctionPrincipale(sources5,secteurs2,caracteristique4,nbEle,dimx,"Image4/",0)
 
 #Fermeture des fichiers
 
