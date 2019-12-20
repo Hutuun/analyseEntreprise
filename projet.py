@@ -31,6 +31,7 @@ sources2 = []
 secteurs3 = []
 sources3 = []
 sources4 = []
+sources5 = []
 
 caracteristique =[]
 caracteristique2 =[]
@@ -98,6 +99,17 @@ for i in range(0,len(sources2)):
 #print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
 
 fct.FonctionPrincipale(sources4,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
+
+for i in range(0,len(sources2)):
+	temp = []
+	temp +=[sources2[i][2]]
+	temp +=[sources2[i][3]]
+	temp +=[sources2[i][11]]
+	sources5+=[temp]
+
+#print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+
+fct.FonctionPrincipale(sources4,secteurs2,caracteristique2,nbEle,dimx,"Image4/",0)
 
 #Fermeture des fichiers
 
