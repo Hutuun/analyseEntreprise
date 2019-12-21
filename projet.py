@@ -100,7 +100,17 @@ for i in range(1,len(sources2)):
 		print("false")
 		print(str(i) + " : " + str(len(sources2[i])))
 
-di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
+
+fct.FonctionActif(sources2,secteurs2,caracteristique,nbEle,dimx,"Image7/",0)
+
+
+fct.FonctionPassif(sources2,secteurs2,caracteristique,nbEle,dimx,"Image8/",0)
+
+
+di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",0)
+
+secteurs3 = secteurs2
+sources3 = sources2
 
 for i in range(len(di)):
 	for j in range(i,len(di)):
@@ -108,19 +118,24 @@ for i in range(len(di)):
 			temp = di[i]
 			di[i] = di[j]
 			di[j] = temp
-			temp = secteurs2[i]
-			secteurs2[i] = secteurs2[j]
-			secteurs2[j] = temp
+			temp = secteurs3[i]
+			secteurs3[i] = secteurs3[j]
+			secteurs3[j] = temp
 
 for i in range(len(di)):
-	resultat.write(str(secteurs2[i]) + str(di[i]) + "\n")
+	resultat.write(str(secteurs3[i]) + str(di[i]) + "\n")
 
 for i in range(len(di)):
 	if di[i]>=100:
-		secteurs2.pop(i)
-		sources2.pop(i)
+		secteurs3.pop(i)
+		sources3.pop(i)
+
+
 		
-di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
+di = fct.FonctionPrincipale(sources3,secteurs3,caracteristique,nbEle,dimx,"Image1/",0)
+
+secteurs3 = secteurs2
+sources3 = sources2
 
 for i in range(len(di)):
 	for j in range(i,len(di)):
@@ -128,12 +143,14 @@ for i in range(len(di)):
 			temp = di[i]
 			di[i] = di[j]
 			di[j] = temp
-			temp = secteurs2[i]
-			secteurs2[i] = secteurs2[j]
-			secteurs2[j] = temp
+			temp = secteurs3[i]
+			secteurs3[i] = secteurs3[j]
+			secteurs3[j] = temp
 
 for i in range(len(di)):
-	resultat2.write(str(secteurs2[i]) + str(di[i]) + "\n")
+	resultat2.write(str(secteurs3[i]) + str(di[i]) + "\n")
+
+
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[2]]
@@ -146,7 +163,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][3]]
 	sources3+=[temp]
 
-#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/",1)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",0)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[12]]
@@ -159,7 +176,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][21]]
 	sources3+=[temp] 
 
-#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",0)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[2]]
@@ -174,7 +191,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][11]]
 	sources3+=[temp]
 
-#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image5/",0)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[23]]
@@ -187,13 +204,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][43]]
 	sources3+=[temp]
 
-#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
-
-
-#fct.FonctionActif(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
-
-
-#fct.FonctionPassif(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image6/",0)
 
 
 #Fermeture des fichiers
@@ -204,3 +215,4 @@ Y.close()
 Cactif.close()
 Cpassif.close()
 resultat.close()
+resultat2.close()

@@ -8,32 +8,38 @@ import matplotlib.pyplot as plt
 import pandas
 import fonction as fct
 
-def FonctionActif(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep):
+def FonctionPassif(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep):
 	caracteristique2 =[]
-	caracteristique2 +=[caracteristique[23]]
-	caracteristique2 +=[caracteristique[43]]
+	caracteristique2 +=[caracteristique[0]]
+	for i in range(25,43):
+		caracteristique2 +=[caracteristique[i]]
 
 	sources3 = []
+	
 	for i in range(0,len(sources2)):
 		temp = []
-		temp +=[sources2[i][23]]
-		temp +=[sources2[i][43]]
+		temp +=[sources2[i][0]]
+		for j in range(25,43):
+			temp +=[sources2[i][j]]
 		sources3+=[temp]
 		
-	print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+	print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources2})) 
+	print(pandas.DataFrame({'Sources':sources3})) 
+	
 
 	fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep)
 
-def FonctionPassif(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep):
+def FonctionActif(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep):
 	caracteristique2 =[]
-	caracteristique2 +=[caracteristique[23]]
-	caracteristique2 +=[caracteristique[43]]
+	for i in range(0,24):
+		caracteristique2 +=[caracteristique[i]]
 
 	sources3 = []
+	
 	for i in range(0,len(sources2)):
 		temp = []
-		temp +=[sources2[i][23]]
-		temp +=[sources2[i][43]]
+		for j in range(0,24):
+			temp +=[sources2[i][j]]
 		sources3+=[temp]
 
 	print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
