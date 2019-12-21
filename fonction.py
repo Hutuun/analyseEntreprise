@@ -69,13 +69,6 @@ def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep
 	#Contribution à l'inertie
 	di = numpy.sum(Z**2,axis=1) 
 	
-	for i in range(len(di)):
-		for j in range(i,len(di)):
-			if di[i] < di[j]:
-				temp = di[i]
-				di[i] = di[j]
-				di[j] = temp
-	
 	print(pandas.DataFrame({'ID':secteurs2,'d_i':di})) 
 
 	#Qualité de représentation
