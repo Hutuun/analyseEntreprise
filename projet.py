@@ -115,13 +115,22 @@ for i in range(len(di)):
 for i in range(len(di)):
 	resultat.write(str(secteurs2[i]) + str(di[i]) + "\n")
 
-for i in range(len(di1)):
-	if di1[i]>=100:
-		di1
+for i in range(len(di)):
+	if di[i]>=100:
 		secteurs2.pop(i)
 		sources2.pop(i)
 		
-di,di1 = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
+di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
+
+for i in range(len(di)):
+	for j in range(i,len(di)):
+		if di[i] < di[j]:
+			temp = di[i]
+			di[i] = di[j]
+			di[j] = temp
+			temp = secteurs2[i]
+			secteurs2[i] = secteurs2[j]
+			secteurs2[j] = temp
 
 for i in range(len(di)):
 	resultat2.write(str(secteurs2[i]) + str(di[i]) + "\n")
