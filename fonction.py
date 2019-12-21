@@ -8,6 +8,38 @@ import matplotlib.pyplot as plt
 import pandas
 import fonction as fct
 
+def FonctionActif(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep):
+	caracteristique2 =[]
+	caracteristique2 +=[caracteristique[23]]
+	caracteristique2 +=[caracteristique[43]]
+
+	sources3 = []
+	for i in range(0,len(sources2)):
+		temp = []
+		temp +=[sources2[i][23]]
+		temp +=[sources2[i][43]]
+		sources3+=[temp]
+		
+	print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+
+	fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep)
+
+def FonctionPassif(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep):
+	caracteristique2 =[]
+	caracteristique2 +=[caracteristique[23]]
+	caracteristique2 +=[caracteristique[43]]
+
+	sources3 = []
+	for i in range(0,len(sources2)):
+		temp = []
+		temp +=[sources2[i][23]]
+		temp +=[sources2[i][43]]
+		sources3+=[temp]
+
+	print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+
+	fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,adresse,rep)
+
 def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep):
 	sc = StandardScaler()
 	acp = PCA(svd_solver='full')
@@ -36,6 +68,14 @@ def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep
 
 	#Contribution à l'inertie
 	di = numpy.sum(Z**2,axis=1) 
+	
+	for i in range(len(di)):
+		for j in range(i,len(di)):
+			if di[i] < di[j]:
+				temp = di[i]
+				di[i] = di[j]
+				di[j] = temp
+	
 	print(pandas.DataFrame({'ID':secteurs2,'d_i':di})) 
 
 	#Qualité de représentation
@@ -88,6 +128,8 @@ def FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,adresse,rep
 		fct.RepresentationIndividus(n,nbEle,dimx,coord,secteurs2,adresse)
 
 	fct.AffichageCercleCorrelation(caracteristique,corvar,p,adresse)
+	
+	return di
 
 def AffichageClassement(p,eigval,adresse):
 	plt.plot(numpy.arange(1,p+1),eigval)

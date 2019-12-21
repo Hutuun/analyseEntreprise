@@ -94,14 +94,15 @@ for i in range(0,len(secteurs)):
 del (secteurs2[0])
 del (sources2[0])
 
-#print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources2}))
-
 for i in range(1,len(sources2)):
 	if len(sources2[i-1])!=len(sources2[i]):
 		print("false")
 		print(str(i) + " : " + str(len(sources2[i])))
 
-fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
+di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
+
+for i in range(len(di)):
+	resultat.write(str(secteurs2[i]) + str(di[i]) + "\n")
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[2]]
@@ -114,9 +115,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][3]]
 	sources3+=[temp]
 
-#print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
-
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/",1)
+#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image2/",1)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[12]]
@@ -127,11 +126,9 @@ for i in range(0,len(sources2)):
 	temp = []
 	temp +=[sources2[i][12]]
 	temp +=[sources2[i][21]]
-	sources3+=[temp]
+	sources3+=[temp] 
 
-#print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
-
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
+#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[2]]
@@ -146,9 +143,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][11]]
 	sources3+=[temp]
 
-print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
-
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[23]]
@@ -161,9 +156,14 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][43]]
 	sources3+=[temp]
 
-print(pandas.DataFrame({'Secteur':secteurs2,'Sources':sources3})) 
+#fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
 
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+
+#fct.FonctionActif(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+
+
+#fct.FonctionPassif(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
+
 
 #Fermeture des fichiers
 
