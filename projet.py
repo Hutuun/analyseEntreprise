@@ -101,13 +101,7 @@ for i in range(1,len(sources2)):
 		print(str(i) + " : " + str(len(sources2[i])))
 
 
-fct.FonctionActif(sources2,secteurs2,caracteristique,nbEle,dimx,"Image7/",0)
-
-
-fct.FonctionPassif(sources2,secteurs2,caracteristique,nbEle,dimx,"Image8/",0)
-
-
-di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",0)
+di = fct.FonctionPrincipale(sources2,secteurs2,caracteristique,nbEle,dimx,"Image/",1)
 
 secteurs3 = secteurs2
 sources3 = sources2
@@ -132,7 +126,7 @@ for i in range(len(di)):
 
 
 		
-di = fct.FonctionPrincipale(sources3,secteurs3,caracteristique,nbEle,dimx,"Image1/",0)
+di = fct.FonctionPrincipale(sources3,secteurs3,caracteristique,nbEle,dimx,"Image1/",1)
 
 secteurs3 = secteurs2
 sources3 = sources2
@@ -163,7 +157,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][3]]
 	sources3+=[temp]
 
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",0)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image3/",1)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[12]]
@@ -176,7 +170,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][21]]
 	sources3+=[temp] 
 
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",0)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image4/",1)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[2]]
@@ -191,7 +185,7 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][11]]
 	sources3+=[temp]
 
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image5/",0)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image5/",1)
 
 caracteristique2 =[]
 caracteristique2 +=[caracteristique[23]]
@@ -204,7 +198,13 @@ for i in range(0,len(sources2)):
 	temp +=[sources2[i][43]]
 	sources3+=[temp]
 
-fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image6/",0)
+fct.FonctionPrincipale(sources3,secteurs2,caracteristique2,nbEle,dimx,"Image6/",1)
+
+
+fct.FonctionActif(sources2,secteurs2,caracteristique,nbEle,dimx,"Image7/",1)
+
+
+fct.FonctionPassif(sources2,secteurs2,caracteristique,nbEle,dimx,"Image8/",1)
 
 
 #Fermeture des fichiers
